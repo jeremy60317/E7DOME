@@ -1,6 +1,6 @@
-* {
+/** {
   @include all();
-}
+}*/
 
 body {
   font-family: $about-font;
@@ -91,6 +91,7 @@ body {
   }
 }
 .tennis_img{
+  // position: relative;
   width: 25%;
   animation: basketball_login 1.5s;
 }

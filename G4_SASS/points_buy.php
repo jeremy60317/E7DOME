@@ -5,10 +5,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>E7DOME</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" href="css/payment.css">
 	<link rel="stylesheet" type="text/css" href="css/font.css">
 </head>
 <body>
+	<div class="pay_finish">
+		<div class="text_bg">
+			<p class="text">儲值成功</p>
+		</div>
+	</div>
 	<?php include 'header.php';?>
 	<?php 
 		require_once('php/connect_g4.php');
@@ -18,11 +24,12 @@
 		// $query = $pdo->query($sql);
 		// $row = $query->fetch(PDO::FETCH_ASSOC);	
 	?>
+	
+	
+	<div class="point_wrapper">
 	<h1 class="payment_title">儲值點數
 		<div class="title_bg"></div>
 	</h1>
-	
-	<div class="wrapper">
 		<div class="payment_select">
 			<h3 class="payment_select_title">付費方式</h3>
 			<label class="payment_method active">
@@ -62,7 +69,7 @@
 										NT$'.$row['CARD_PRICE'].
 									'</div>
 									<div class="payment_points_right">
-										一起動點數 X'.$row['CARD_POINTS'].
+										一起動點數 x '.$row['CARD_POINTS'].
 									'</div>
 									<input type="radio" name="CARD_NO" id="" class="CARD_NO" value="'.$row["CARD_NO"].'"checked='.'"checked" \">
 								</label>';
@@ -75,7 +82,7 @@
 										NT$'.$row['CARD_PRICE'].
 									'</div>
 									<div class="payment_points_right">
-										一起動點數 X'.$row['CARD_POINTS'].
+										一起動點數 x '.$row['CARD_POINTS'].
 									'</div>
 									<input type="radio" name="CARD_NO" id="" class="CARD_NO" value="'.$row["CARD_NO"].'">
 								</label>';			
@@ -90,7 +97,7 @@
 										NT$'.$row['CARD_PRICE'].
 									'</div>
 									<div class="payment_points_right">
-										一起動點數 X'.$row['CARD_POINTS'].
+										一起動點數 x '.$row['CARD_POINTS'].
 									'</div>
 									<input type="radio" name="CARD_NO" id="" class="CARD_NO" value="'.$row["CARD_NO"].'"checked='.'"checked"'.'">
 								</label>';
@@ -103,7 +110,7 @@
 										NT$'.$row['CARD_PRICE'].
 									'</div>
 									<div class="payment_points_right">
-										一起動點數 X'.$row['CARD_POINTS'].
+										一起動點數 x '.$row['CARD_POINTS'].
 									'</div>
 									<input type="radio" name="CARD_NO" id="" class="CARD_NO" value="'.$row["CARD_NO"].'">
 								</label>';			
@@ -152,6 +159,10 @@
 							alert('請先登入會員');
 							showLoginForm();
 						}
+						else{
+							$('.pay_finish').show();
+						}
+						
 					});
 				}
 			})

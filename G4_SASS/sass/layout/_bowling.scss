@@ -2,9 +2,10 @@
 img{
     vertical-align: middle;
 }
-// *{
-//     outline: #0f0 1px solid;
-// }
+*{
+    // outline: #0f0 1px solid;
+}
+
 .bownling_first_page{
     width:100%;
     position: relative;
@@ -19,6 +20,9 @@ img{
     height:0;
     background-color: #70d9f1;
     clear: both;
+    position:absolute;
+    bottom:0;
+    z-index: 5;
 }
 .bownling_first_page:before{
     display: block;
@@ -111,8 +115,16 @@ img{
     margin-right: 0;
     font-size: 66px;
 }
+@media screen and (max-width:1200px){
+    .bwl_h1{
+        font-size: 55px;
+    }
+    .bwl_h2{
+        font-size: 33px;
+    }
+}
 
-@media screen and (max-width:747px){
+@media screen and (max-width:767px){
     .bownling_first_page{
         height:75vh;
         overflow: hidden;
@@ -129,6 +141,10 @@ img{
         bottom:auto;
         right:auto;
         background-color: #ea4c89;
+    }
+    
+    .bownling_first_page:after{
+        padding-top: 5%;
     }
     #bowlingbgimg{
         width:auto;

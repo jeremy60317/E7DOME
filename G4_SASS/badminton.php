@@ -19,9 +19,7 @@ badminton.css">
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <?php include 'header.php';?>
-    </header>
+    <?php include 'header.php';?>
     <div class="bad_fp">
         <div class="bad_fp_rec"></div>
         <div class="bad_fp_tri"></div>
@@ -181,7 +179,7 @@ badminton.css">
     </div>
     <div class="group_page">
         <div class="bgcball">
-            <img src="images/bowling/ball.png" alt="">
+            <img src="images/sport/badminton_page.png" alt="">
         </div>
         <div class="group_page_content">
             <h3>加入揪團！尋找運動伙伴</h3>
@@ -268,21 +266,22 @@ badminton.css">
 
     <script src="js/slick.min.js"></script>
     <script>
-        // $('.sport_slider').slick({
-        //         dots: true,
-        //         slidesToShow: 1,
-        //         slidesToScroll: 1,
-        //         arrows:false,
-        //         autoplay: true,
-        //         autoplaySpeed: 2000,
-        //         focusOnSelect:true,
-        //     });
+        function slickItem() {
+            if($(window).width()<767){
+                $('.teamGroup').slick({
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows:false,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    focusOnSelect:true,
+                });
+            }
+        }
+        $(window).resize(slickItem);
     </script>
-	<script>
-		$('.humberger_btn').click(function(){
-			$(this).toggleClass('active');
-		})
-    </script>
+	
     <script>
         $.ajax({
             url:'php/facility/sports.php',

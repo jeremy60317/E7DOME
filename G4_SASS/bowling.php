@@ -18,9 +18,7 @@
     <script type="text/javascript" src="libs/Scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
 </head>
 <body>
-    <header>
-        <?php include 'header.php';?>
-    </header>
+    <?php include 'header.php';?>
     <div class="bownling_first_page">
         <img src="images/bowling/bowlingbgimg.png" alt="" id="bowlingbgimg">
         <img src="images/bowling/bowlingcan.png" id="bowlingcan">
@@ -256,20 +254,21 @@
 
     <script src="js/slick.min.js"></script>
     <script>
-        // $('.sport_slider').slick({
-        //         dots: true,
-        //         slidesToShow: 1,
-        //         slidesToScroll: 1,
-        //         arrows:false,
-        //         autoplay: true,
-        //         autoplaySpeed: 2000,
-        //         focusOnSelect:true,
-        //     });
-    </script>
-	<script>
-		$('.humberger_btn').click(function(){
-			$(this).toggleClass('active');
-		})
+        function slickItem() {
+            if($(window).width()<767){
+                $('.teamGroup').slick({
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows:false,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    focusOnSelect:true,
+                });
+            }
+        }
+        $(window).on('resize',slickItem);
+        
     </script>
     <script>
         $.ajax({
@@ -390,7 +389,7 @@
                     cate_no:parseInt($('.site_select').find('input').eq(0).val()),
                 },
                 success:function(data3){
-                    window.location.href = "test.php";
+                    window.location.href = "booking.php";
                 },
                 error:function(){
                     alert('gg');

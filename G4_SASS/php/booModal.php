@@ -1,11 +1,14 @@
 <?php
+ob_start();
+session_start();
+
 
 $FAC_NO = $_POST["FAC_NO"];
 $BOO_DATE = $_POST["BOO_DATE"];
 $BOO_TIME_i = $_POST["BOO_TIME_i"];
 
-$MEM_NO = 1;
-$MEM_POINTS = 5000;
+// $MEM_NO = $_SESSION["MEM_NO"];
+// $MEM_POINTS = $_SESSION["MEM_POINTS"];
 
 
 	// connect DB
@@ -16,7 +19,7 @@ $MEM_POINTS = 5000;
 
 	$rowFacBoo = $facBoo->fetch();
 
-	$BOO_TIME = array('上午', '下午', '晚上');
+	$BOO_TIME = array('清晨', '上午', '下午', '晚上');
 
 ?>
 
@@ -29,18 +32,12 @@ $MEM_POINTS = 5000;
 			<?php echo '<input type="hidden" name="FAC_NO" value="'.$FAC_NO.'">' ?>
 			<?php echo '<input type="hidden" name="FAC_POINTS" value="'.$rowFacBoo["FAC_POINTS"].'">' ?>
 
-			<?php echo '<input type="hidden" name="BOO_DATETIME" value="2018-08-09 04:08:22">' ?>
+			<?php echo '<input type="hidden" name="BOO_DATETIME" value="'.date("Y-m-d H:i:s").'">' ?>
 			<?php echo '<input type="hidden" name="BOO_DATE" value="'.$BOO_DATE.'">' ?>
 			<?php echo '<input type="hidden" name="BOO_TIME" value="'.$BOO_TIME_i.'">' ?>
 
-			<?php echo '<input type="hidden" name="MEM_NO" value="'.$MEM_NO.'">' ?>
-			<?php echo '<input type="hidden" name="MEM_POINTS" value="'.$MEM_POINTS.'">' ?>
+
 
 			<?php echo '<input type="hidden" name="BOO_STATUS" value="1">' ?>
 		</td>
 	</tr>
-					
-
-
-
-

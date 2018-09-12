@@ -61,9 +61,10 @@ $member_pic = 'images/member_pic/'.$_SESSION["MEM_IMG"];
 				<li><a href="memberbooking.php"><span class="line"></span>預約紀錄</a></li>
 				<li id="meminfo_active"><a href="#"><span class="line"></span>儲值紀錄</a></li>
 				<li><a href="membergroup.php"><span class="line"></span>我的揪團</a></li>
+				<li><form action="php/logout.php" method="post"><input id="btn_logout" type="submit" value="登出"></form> </li>
 
 				
-				<li><form action="php/logout.php" method="post"> <input id="btn_logout" type="submit" value="登出"></form></li>
+				
 				
 			</ul>
 			
@@ -82,7 +83,7 @@ $member_pic = 'images/member_pic/'.$_SESSION["MEM_IMG"];
 				<h1 id="member_h1">儲值紀錄</h1>
 
 				
-					
+					<div class="points_scrollbar">
 			
 
 					<div class="text_title">
@@ -145,7 +146,7 @@ $member_pic = 'images/member_pic/'.$_SESSION["MEM_IMG"];
 					
 					
 				
-
+			</div>
 
 
 			</div>

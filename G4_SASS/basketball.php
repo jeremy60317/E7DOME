@@ -18,9 +18,7 @@
     <script type="text/javascript" src="libs/Scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
 </head>
 <body>
-    <header>
-        <?php include 'header.php';?>
-    </header>
+    <?php include 'header.php';?>
     <div class="bkb_fp">
         <div class="bkb_fp_blue"></div>
         <div class="bkb_fp_black"></div>
@@ -171,7 +169,7 @@
     </div>
     <div class="group_page">
         <div class="bgcball">
-            <img src="images/bowling/ball.png" alt="">
+            <img src="images/basketball/basketball.png" alt="">
         </div>
         <div class="group_page_content">
             <h3>加入揪團！尋找運動伙伴</h3>
@@ -258,21 +256,22 @@
 
     <script src="js/slick.min.js"></script>
     <script>
-        // $('.sport_slider').slick({
-        //         dots: true,
-        //         slidesToShow: 1,
-        //         slidesToScroll: 1,
-        //         arrows:false,
-        //         autoplay: true,
-        //         autoplaySpeed: 2000,
-        //         focusOnSelect:true,
-        //     });
+        function slickItem() {
+            if($(window).width()<767){
+                $('.teamGroup').slick({
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows:false,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    focusOnSelect:true,
+                });
+            }
+        }
+        $(window).resize(slickItem);
     </script>
-	<script>
-		$('.humberger_btn').click(function(){
-			$(this).toggleClass('active');
-		})
-    </script>
+	
     <script>
         $.ajax({
             url:'php/facility/sports.php',

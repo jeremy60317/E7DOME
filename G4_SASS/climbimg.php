@@ -18,9 +18,7 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <?php include 'header.php';?>
-    </header>
+    <?php include 'header.php';?>
     <div class="clm_fp">
         <div class="clm_fp_bgimg">
             <img src="images/sport/climbimg_fp.png" alt="">
@@ -167,7 +165,7 @@
     </div>
     <div class="group_page">
         <div class="bgcball">
-            <img src="images/bowling/ball.png" alt="">
+            <img src="images/sport/ston.png" alt="">
         </div>
         <div class="group_page_content">
             <h3>加入揪團！尋找運動伙伴</h3>
@@ -254,21 +252,22 @@
 
     <script src="js/slick.min.js"></script>
     <script>
-        // $('.sport_slider').slick({
-        //         dots: true,
-        //         slidesToShow: 1,
-        //         slidesToScroll: 1,
-        //         arrows:false,
-        //         autoplay: true,
-        //         autoplaySpeed: 2000,
-        //         focusOnSelect:true,
-        //     });
+        function slickItem() {
+            if($(window).width()<767){
+                $('.teamGroup').slick({
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows:false,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    focusOnSelect:true,
+                });
+            }
+        }
+        $(window).resize(slickItem);
     </script>
-	<script>
-		$('.humberger_btn').click(function(){
-			$(this).toggleClass('active');
-		})
-    </script>
+	
     <script>
         $.ajax({
             url:'php/facility/sports.php',

@@ -112,6 +112,7 @@
 	text-align: left;
 	padding: 30px 15px 15px;
 	position: relative;
+	overflow-wrap: break-word;
 }
 .teamName{
 	font-size: 20px;
@@ -187,9 +188,12 @@
 	}
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
 	#fp-nav{
 		display: none;
+	}
+	.teamItem.all{
+		// display: none;
 	}
 	.teamMore.all .moreSkew{
 		display: none;
@@ -206,8 +210,8 @@
 		text-align: center;
 	}
 	.home_pg3 h2{
-		padding-top: 15vh;
-		margin-bottom: 3vh;
+		padding-top: 80px;
+		margin-bottom: 20px;
 		font-size: 24px;
 	}
 	.teamItem.all{
@@ -224,11 +228,9 @@
 	.all_img{
 		display: none;
 	}
-	.home_team {
-		width: 100%;
-	}
+	
 	.teamGroup{
-		width: 75%;
-		margin: 0 auto;
+		width: 80%;
+		margin: 0 auto 50px;
 	}
 }

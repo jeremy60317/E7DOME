@@ -60,6 +60,30 @@
     margin-right: 0;
     font-size: 66px;
 }
+@media screen and (max-width:1200px){
+    .clm_fp h1{
+        font-size: 55px;
+    }
+    .clm_fp h2{
+        font-size: 33px;
+    }
+}
+@media screen and (max-height:823px){
+    
+    .clm_fp_bgimg img{
+        width:140%;
+        position: relative;
+        left:-5%;
+    }
+}
+@media screen and (max-height:736px){
+    
+    .clm_fp_bgimg img{
+        width:115%;
+        position: relative;
+        left:-2%;
+    }
+}
 @media screen and (max-width:767px){
     .clm_fp{
         height:75vh;
@@ -67,11 +91,14 @@
         padding-top: 60px;
     }
     .clm_fp_bgimg{
-        width:300%;
+        width:255%;
         height:75vh;
         position: absolute;
-        left:-50%;
+        left:-40%;
     }
+    // .clm_fp_bgimg img{
+    //     width:115%;
+    // }
     .clm_fp_orgtop{
         border-width: 40vw 40vw 0 0;
         top:60px;
@@ -119,4 +146,7 @@
 }
 .assess_tri3 {
     border-color: transparent #f6682f transparent transparent;
+}
+.bgcball{
+    width:46%;
 }

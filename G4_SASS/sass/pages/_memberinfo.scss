@@ -159,11 +159,17 @@ input[type="file"] {
 .m_item li a {
     border-bottom: 4px solid #ffb505;
     padding-bottom: 5px;
+    font-size: 4.5vw;
 }
 
 /*768以上*/
 
 @media screen and (min-width: 768px) {
+    .m_item li a {
+        border-bottom: 4px solid #ffb505;
+        padding-bottom: 5px;
+        font-size: 22px;
+    }
     .pic_wrap {
         position: relative;
         width: 180px;
@@ -248,6 +254,13 @@ input[type="file"] {
 
 #meminfo_active .line{
      background-color:#ffb505;
+}
+
+.m_item li:hover a{
+     color: #ffb505;
+}
+.m_item li:hover a span{
+     background-color: #ffb505;
 }
 
 

@@ -110,9 +110,14 @@
 		// click on a Mall´s level
 		mallLevels.forEach(function(level, pos) {
 			level.addEventListener('click', function() {
+				// console.log(level);
+				// console.log(pos);
 				// shows this level
 				showLevel(pos+1);
 				openContent( (pos+1) + '.01' );
+				// console.log( (pos+1) + '.01');
+				facInfo($(level).data('category'));
+				// console.log((pos+1) + '.01');
 			});
 		});
 
@@ -123,8 +128,8 @@
 		});
 
 		// navigating through the levels
-		levelUpCtrl.addEventListener('click', function() { navigate('Down'); });
-		levelDownCtrl.addEventListener('click', function() { navigate('Up'); });
+		levelUpCtrl.addEventListener('click', function() { navigate('Down'); openContentArea(); });
+		levelDownCtrl.addEventListener('click', function() { navigate('Up'); openContentArea(); });
 
 		// sort by name ctrl - add/remove category name (css pseudo element) from list and sorts the spaces by name 
 		sortByNameCtrl.addEventListener('click', function() {
@@ -142,23 +147,23 @@
 		pins.forEach(function(pin) {
 			var contentItem = contentEl.querySelector('.content__item[data-space="' + pin.getAttribute('data-space') + '"]');
 
-			pin.addEventListener('mouseenter', function() {
-				if( !isOpenContentArea ) {
-					classie.add(contentItem, 'content__item--hover');
-				}
-			});
-			pin.addEventListener('mouseleave', function() {
-				if( !isOpenContentArea ) {
-					classie.remove(contentItem, 'content__item--hover');
-				}
-			});
-			pin.addEventListener('click', function(ev) {
-				ev.preventDefault();
-				// open content for this pin
-				openContent(pin.getAttribute('data-space'));
-				// remove hover class (showing the title)
-				classie.remove(contentItem, 'content__item--hover');
-			});
+			// pin.addEventListener('mouseenter', function() {
+			// 	if( !isOpenContentArea ) {
+			// 		classie.add(contentItem, 'content__item--hover');
+			// 	}
+			// });
+			// pin.addEventListener('mouseleave', function() {
+			// 	if( !isOpenContentArea ) {
+			// 		classie.remove(contentItem, 'content__item--hover');
+			// 	}
+			// });
+			// pin.addEventListener('click', function(ev) {
+			// 	ev.preventDefault();
+			// 	// open content for this pin
+			// 	openContent(pin.getAttribute('data-space'));
+			// 	// remove hover class (showing the title)
+			// 	classie.remove(contentItem, 'content__item--hover');
+			// });
 		});
 
 		// closing the content area
@@ -177,9 +182,11 @@
 				// for smaller screens: close search bar
 				closeSearch();
 				// open level
-				showLevel(level);
+				showLevel(level); // console.log(level);
 				// open content for this space
 				openContent(spacerefval);
+				// open facInfoBox
+				facInfo(level);
 			});
 		});
 
@@ -224,7 +231,7 @@
 		}, 'transform');
 		
 		// hide surroundings element
-		hideSurroundings();
+		// hideSurroundings();
 		
 		// show mall nav ctrls
 		showMallNav();
@@ -250,7 +257,7 @@
 		removePins();
 
 		// shows surrounding element
-		showSurroundings();
+		// showSurroundings();
 		
 		// hide mall nav ctrls
 		hideMallNav();
@@ -336,15 +343,16 @@
 		var currentLevel = mallLevels[prevSelectedLevel-1];
 
 		if( direction === 'Up' && prevSelectedLevel > 1 ) {
-			--selectedLevel;
+			--selectedLevel;  
 		}
 		else if( direction === 'Down' && prevSelectedLevel < mallLevelsTotal ) {
-			++selectedLevel;
+			++selectedLevel;  
 		}
 		else {
 			isNavigating = false;	
 			return false;
 		}
+
 
 		// control navigation controls state (enabled/disabled)
 		setNavigationState();
@@ -375,6 +383,11 @@
 
 		// hide the previous level´s pins
 		removePins(currentLevel);
+
+		// openContent
+		openContent((selectedLevel) + '.01');
+		var levelFix = {1: 4, 2: 2, 3: 3, 4: 1};
+		facInfo(levelFix[selectedLevel]);
 	}
 
 	/**
@@ -400,7 +413,6 @@
 	 * Opens/Reveals a content item.
 	 */
 	function openContent(spacerefval) {
-		console.log(spacerefval);
 		// if one already shown:
 		if( isOpenContentArea ) {
 			hideSpace();
@@ -459,7 +471,7 @@
 			});
 		}
 		// map pin gets selected
-		classie.add(mallLevelsEl.querySelector('.pin[data-space="' + spaceref + '"]'), 'pin--active');
+		// classie.add(mallLevelsEl.querySelector('.pin[data-space="' + spaceref + '"]'), 'pin--active');
 	}
 
 	/**
@@ -512,6 +524,23 @@
 		classie.add(spacesListEl, 'spaces-list--open');
 		classie.add(containerEl, 'container--overflow');
 	}
+
+
+	// facInfoBox
+	function facInfo(level) {
+		console.log(level);
+		var cate_no = level;
+		$.post("php/3dfacInfo.php",
+			{
+				CATE_NO: cate_no
+			},
+			function(data){
+				var cateNo = '#queryCate' + cate_no;  console.log(cateNo);
+				$(cateNo).html(data);
+		});
+	}
+
+
 
 	/**
 	 * for smaller screens: close search bar

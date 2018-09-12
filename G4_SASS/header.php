@@ -1,4 +1,4 @@
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
   <link rel="stylesheet" type="text/css" href="css/font.css">
 	<link rel="stylesheet" type="text/css" href="css/member.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js">
@@ -37,6 +37,7 @@
 				<li>
 					<a href="chat-robot.php"> 諮詢專區 </a>
 				</li>
+				<li class="buy_hidden"><a href="points_buy.php"> 儲值點數</a></li>
 			</ul>
 		</div>
 		<script>
