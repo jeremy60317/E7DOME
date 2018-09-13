@@ -1,0 +1,277 @@
+* {
+  // outline: 1px solid;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 100vh;
+  .triangle-yellow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-color: rgb(255, 181, 5) transparent transparent transparent;
+    border-style: solid solid solid solid;
+    /* 設定邊框大小可拼湊出任意形狀的三角形 */
+    border-width: 250vw 35vw 0vw 0vw;
+    /* 設定 width、height 可更好理解原理 */
+  }
+  .trapezoid-blue {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-color: transparent rgb(0, 82, 178) transparent transparent;
+    border-style: solid solid solid solid;
+    /* 設定邊框大小可拼湊出任意形狀的三角形 */
+    border-width: 300vw 35vw 0vw 0vw;
+    /* 設定 width、height 可更好理解原理 */
+  }
+  .rectangle-blue {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50vw;
+    height: 300vw;
+    background-color: rgb(0, 82, 178);
+  }
+  #messageall {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 50%;
+    height: 50%;
+    box-shadow: 0.5px 0.5px 10px 0.5px #000;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 10;
+    box-sizing: border-box;
+  }
+  #message {
+    display: flex; // display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: calc(100% - 40px);
+    background-color: rgba(40, 53, 79, 0.9);
+    z-index: 2;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: auto;
+  }
+  .field {
+    width: 90%;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 10;
+    box-sizing: border-box;
+    input {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      font-size: 23px;
+      background-color: #ffb505;
+      transition: background 0.3s ease;
+      color: rgba(40, 53, 79, 1);
+      bottom: 0;
+      padding: 5px 10px;
+      &:focus {
+        background-color: #ffb505;
+        font-size: 23px;
+        &::selection {
+          background: rgba(188, 232, 255, 0.5);
+        }
+      }
+      &.active {
+        background-color: #ffb505;
+        font-size: 23px;
+      }
+    }
+    input,
+    button {
+      position: absolute;
+      height: 40px;
+    }
+    button {
+      background: rgba(0, 0, 0, 0.3);
+      right: 0;
+      border: 0;
+      width: 115px;
+      border-radius: 6px;
+      font-size: 22px;
+      cursor: pointer;
+      transition: width 0.3s ease, background 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+      color: #ffb505;
+      text-transform: uppercae;
+      pointer-events: none;
+      &.active {
+        color: #ffffff;
+        background: #ffb505;
+        opacity: 1;
+        pointer-events: auto;
+        &:hover {
+          background: #ffb505;
+        }
+      }
+      &.full {
+        width: 100%;
+      }
+    }
+    input:focus+label {
+      font-size: 19px;
+      transform: translate(0px, 0px);
+      color: rgba(255, 255, 255, 0.7);
+    }
+    label {
+      position: absolute;
+      color: rgba(255, 255, 255, 1); // transform: translate(16px, 20px);
+      transition: transform 0.3s ease, font-size 0.3s ease, color 0.3s 0.1s ease;
+      font-size: 28px;
+      bottom: 0;
+      &.active {
+        font-size: 19px;
+        transform: translate(0px, 0px);
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+    input:focus+label+button {
+      opacity: 1;
+    }
+    span {
+      font-family: $span-family;
+    }
+  }
+  .coach_img {
+    width: 100%;
+    overflow: hidden; // padding-top: 48.75%;
+    height: 70vh;
+    position: absolute;
+    top: 20%;
+    background-image: url("../images/chatrobot/gym-background.png");
+    background-size: cover;
+  }
+  .coach_img img {
+    // max-width: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0; // right: 0;
+    // bottom: 0;
+    // margin: auto;
+  }
+}
+
+// 機器人問答
+#talk {
+  width: 100%;
+  padding: 2%;
+  height: 350px;
+}
+
+.li_ans {
+  margin: 2% 0;
+  font-size: 1.5vw;
+  text-align: left;
+  color: #9daac8;
+}
+
+.rli_ans {
+  margin: 2% 0;
+  font-size: 1.5vw;
+  text-align: right;
+  color: #9daac8;
+}
+
+section .field {
+  width: 100%;
+}
+
+section .field {
+  width: 100%;
+  animation: input-w 1s;
+}
+
+section .ptm {
+  animation: ptm 2s 2s;
+}
+
+@keyframes input-w {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes ptm {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.portrait {
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  margin-bottom: 10px;
+}
+
+.coachman {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 30%;
+  height: 95%;
+  z-index: 0;
+}
+
+.coachman img {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+// scroll樣式更換
+#message::-webkit-scrollbar {
+  background-color: #ffb505;
+}
+
+#message::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgb(0, 82, 178);
+}
+
+#message::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(0, 67, 143);
+}
+
+#message::-webkit-scrollbar-thumb:active {
+  background-color: rgb(1, 48, 102);
+}
+
+#message::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+#message::-webkit-scrollbar-button {
+  color: rgb(0, 82, 178);
+}

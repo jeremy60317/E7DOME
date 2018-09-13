@@ -1,0 +1,242 @@
+@import "base/var";
+/*<<<<<<< HEAD*/
+
+* {
+  //outline: 1px solid red;
+}
+
+a,
+table {
+  font-family: '微軟正黑體';
+  text-decoration: none;
+}
+
+a {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+h2 {
+  background-color: #0052B2;
+  color: #fff;
+  padding: 20px 2.5% 20px;
+  font-size: 36px;
+  margin-bottom: 25px;
+}
+
+.bcak_logo {
+  text-align: center;
+  margin-bottom: 5vh;
+  margin-top: 2vh;
+}
+
+.bcak_logo h1 {
+  font-size: 24px;
+  color: #0052B2;
+  margin-top: 10px;
+}
+
+.bcak_logo img {
+  width: 100%;
+}
+
+.back_nav {
+  width: 15%;
+  float: left;
+  height: 100vh;
+  background-color: #ffb505;
+  padding: 0 20px;
+  text-align: center;
+  box-sizing: border-box; // position: fixed;
+}
+
+.back_nav a,
+.lout{
+  color: $a_color;
+  padding: 14px 0;
+}
+/* Outline In */
+
+.hover-a{
+  width: 160px;
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+}
+
+.hover-a:before {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  z-index: -1;
+  border: #0052B2 solid 5px;
+  background-color: rgba(39, 133, 240, 0.52);
+  top: -16px;
+  right: -16px;
+  bottom: -16px;
+  left: -16px;
+  opacity: 0;
+  transition-duration: 0.3s;
+  transition-property: top, right, bottom, left;
+}
+
+.hover-a:hover:before,
+.hover-a:focus:before,
+.hover-a:active:before {
+  top: 0px;
+  right: -8px;
+  bottom: 0px;
+  left: -8px;
+  opacity: 1;
+}
+
+
+.back_content {
+  float: left;
+  background-color: #fff; // position: relative; 
+  height: 100vh;
+  width: 85%;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+.back_content::after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.search {
+  width: 95%;
+  margin: 0 auto 10px; // padding: 5px 10px;
+  text-align: left;
+}
+
+/*=======*/
+
+#book_search,
+#search {
+  font-size: 18px;
+  font-family: "微軟正黑體";
+  padding: 5px 10px;
+  width: 15%;
+  outline:0;
+}
+
+.btn {
+  font-size: 18px;
+  font-family: "微軟正黑體";
+  padding: 5px 20px;
+  // margin-left: 2.5%;
+}
+.btn_fac{
+  margin-left:2.5%;
+}
+table {
+  // display: block;
+  margin: 0 auto; // height: 90%;
+  width: 95%;
+}
+
+th,
+td {
+  padding: 10px 20px;
+  text-align: center;
+}
+
+th {
+  background-color: #4c9efe;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+tr:nth-child(odd) {
+  background-color: #dedede;
+}
+
+select {
+  padding: 5px;
+  font-weight: normal;
+}
+
+/*// 頁簽樣式*/
+
+#tab-page>ul {
+  width: 95%;
+  display: block;
+  margin: 0 auto;
+  list-style: none;
+}
+
+.tab-title {
+  list-style: none;
+}
+
+#tab-page>ul>li {
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  display: inline-block;
+  vertical-align: top;
+  font-family: "微軟正黑體";
+  margin: 10px 5px 0px 0px;
+  border: 1px solid #bcbcbc;
+  height: 50px;
+  line-height: 25px;
+  background: #cdcdcd;
+  padding: 15px 15px;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+#tab-page>ul>li a {
+  color: #000;
+  text-decoration: none;
+}
+
+#tab-page>ul>li.active {
+  border-bottom: 1px solid #4c9efe;
+  background: #4c9efe;
+}
+
+#back_add {
+  text-align: right;
+  width: 95%;
+  margin: 10px auto;
+}
+
+// #new_qa {
+//   position: relative;
+//   right: 0;
+//   bottom: 3px;
+//   // background-color: #4c9efe;
+//   color: #000;
+//   border: none;
+//   padding: 10px;
+//   cursor: pointer;
+//   font-family: '微軟正黑體';
+// }
+
+#new_qa:active {
+  background-color: #3175c4;
+}
+
+#back_add img {
+  position: relative;
+  top: 50px;
+  right: 1%;
+  width: 35px;
+  height: 35px;
+}
+.loutbtn{
+  padding:5px 20px;
+  cursor: pointer;
+  background-color: #0052b2;
+  outline:0;
+  border:0;
+  color:white;
+  font-size: 18px;
+  border-radius: 20px;
+}
