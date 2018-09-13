@@ -308,15 +308,15 @@ body {
 .sport_memPic img{
     position: absolute;
     width:100%;
-    // height:100%;
+    height:100%;
     top:0;
     left:0;
     // border-radius: 9487%;
     // display: block;
 }
-.memPic{
+// .memPic{
 
-}
+// }
 .rank{
     // width:200px;
     display:block;
@@ -329,7 +329,7 @@ body {
 .sport_td:nth-child(2) {
     font-size: 20px;
     width:20%;
-    padding-top:4%;
+    padding-top:3%;
 }
 .sport_td:nth-child(3){
     width:50%;
@@ -341,7 +341,7 @@ body {
     font-size: 16px;
     color:#0052b2;
     width:20%;
-    padding-top:4%;
+    padding-top:3%;
 }
 .rank{
     color:yellow;
@@ -375,7 +375,7 @@ body {
 // }
 
 .bgcball img{
-    width:100%;
+    width:85%;
 }
 .group_page_content{
     width:1200px;
@@ -441,7 +441,7 @@ body {
 	color: #ffb505;
 	font-size: 2vw;
 	margin-top: 15px;
-	margin-bottom: 45px;
+	margin-bottom: 10%;
 	font-style: oblique;
 	font-family: 'HanWangZonYi';
 }
@@ -509,6 +509,7 @@ body {
     }
     .morebg{
         padding:5% 10%;
+        font-size: 1.5vw;
     }
     .teamDay{
         font-size: 2vw;
@@ -519,7 +520,7 @@ body {
         line-height: 1;
     }
     .teamName{
-        font-size: 2vw;
+        font-size: 1.5vw;
         padding-bottom: 0;
     }
     .teamDate,
@@ -528,6 +529,12 @@ body {
         font-size: 1.5vw;
         line-height: 1.5;
         color:#aaaaaa;
+    }
+    .teamMore{
+        font-size: 1.5vw;
+    }
+    .teamGroup{
+        width:100%;
     }
     // .site_info_tri1{
     //     border-width: 0 0 60vw 70vw;}

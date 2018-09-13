@@ -99,7 +99,7 @@ $member_pic = 'images/member_pic/'.$_SESSION["MEM_IMG"];
 
 					try{
 							require_once("php/connect_g4.php");
-							$sql = "select * from booking left join facility  on booking.fac_no = facility.fac_no  where MEM_NO =".$_SESSION['MEM_NO']." ORDER BY BOO_DATE DESC";
+							$sql = "select * from booking left join facility  on booking.fac_no = facility.fac_no  where MEM_NO =".$_SESSION['MEM_NO']." ORDER BY BOO_NO DESC";
 							$member = $pdo->query($sql);
 							
 							if($member->rowCount()==0){
