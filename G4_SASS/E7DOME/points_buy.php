@@ -60,7 +60,7 @@
 
 
 				<?php
-				$sql = "select * from pointcard where CARD_STATUS = 1 LIMIT 3";             
+				$sql = "select * from pointcard where CARD_STATUS = 1";             
 				$query = $pdo->query($sql);	
 				$rows = $query->fetchAll(PDO::FETCH_ASSOC);
 				foreach($rows as $keys => $row){
