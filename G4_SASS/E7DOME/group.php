@@ -198,7 +198,7 @@ try {
         </table>
     </div>
 </div>
-<?php session_destroy(); ?>
+<?php unset($_SESSION["cate_no"]); ?>
 
     <script src="libs/jquery/dist/jquery.min.js"></script>
     <script src="libs/isotope-layout/dist/isotope.pkgd.min.js"></script>
