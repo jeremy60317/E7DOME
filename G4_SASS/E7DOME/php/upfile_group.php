@@ -24,7 +24,7 @@ switch($_FILES['upfile']['error']){
     $from = $_FILES['upfile']['tmp_name'];
     $fileto =pathinfo($_FILES['upfile']['name']);
     $filext = $fileto['basename'];
-    $to = "../images/team_pic{$filext}";
+    $to = "../images/team_pic/{$filext}";
     $filname = "{$filext}";
     if(copy( $from, $to)){
       $file = "
