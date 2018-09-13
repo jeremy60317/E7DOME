@@ -67,12 +67,6 @@ session_start();
             <form action="back_card_add.php" method="post">         
                 <table>
                     <tr>
-                        <th>商品名稱</th>
-                        <td>
-                        <input type="text" name="card_name" id="card_name">
-                        </td>
-                    </tr>
-                    <tr>
                         <th>商品價格</th>
                         <td>
                         <input type="text" name="card_price" id="card_price">
@@ -104,7 +98,6 @@ session_start();
                 <thead>
                     <tr>
                         <th>商品編號</th>
-                        <th>商品名稱</th>
                         <th>商品售價</th>
                         <th>商品點數</th>
                         <th>商品狀態</th>
@@ -116,9 +109,14 @@ session_start();
                 $show_card = "SELECT * FROM pointcard";
                 $query = $pdo->query($show_card);
                 while($row = $query->fetch(PDO::FETCH_ASSOC)){
+                    if($row['CARD_STATUS']==1){
+                        $row['CARD_STATUS'] = '上架中';
+                    }
+                    else
+                        $row['CARD_STATUS'] = '下架中';
+                    
                     echo "<tr>".
                     "<td>".$row['CARD_NO']."</td>".
-                    "<td>".$row['CARD_NAME']."</td>".
                     "<td>".$row['CARD_PRICE']."</td>".
                     "<td>".$row['CARD_POINTS']."</td>".
                     "<td>".$row['CARD_STATUS']."</td>".
