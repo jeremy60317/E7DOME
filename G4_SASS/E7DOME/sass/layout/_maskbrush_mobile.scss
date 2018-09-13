@@ -1,0 +1,69 @@
+@media screen and (max-width: 1200px) {
+  .layouts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #mycanvas {
+    min-width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #mycanvas {
+    top: 30%;
+    width: 95%;
+    height: 300px;
+    border: 10px solid #79C743;
+  }
+  .bomb-rocket,
+  .normal-rocket {
+    display: none;
+  }
+  .vtb-intro-mask-overlay {
+    display: none;
+  }
+  .vtb-intro-mask {
+    display: none;
+  }
+  .vtb-intro-mask_hover-overlay {
+    display: none;
+  }
+  .text {
+    position: absolute;
+    left: 50%;
+    top: 85%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 15vw;
+    font-family: "Concert One", cursive;
+    animation: text-animation 5s linear infinite alternate;
+  }
+  .light {
+    display: none;
+  }
+  .gift1 img,
+  .gift2 img,
+  .gift3 img,
+  .gift4 img {
+    display: none;
+  }
+  @keyframes top-right {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(20deg);
+    }
+  }
+  @keyframes top-left {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-20deg);
+    }
+  }
+}

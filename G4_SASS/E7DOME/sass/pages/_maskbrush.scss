@@ -1,0 +1,346 @@
+*{
+  box-sizing: border-box;
+  // outline: 1px solid;
+}
+html {
+  height:100%;
+  overflow:hidden;
+}
+.layouts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+.bg{
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../images/brush/Summer-sports.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 90% 100%;
+}
+.layouts h2 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2%;
+  z-index: 1;
+  color: rgb(255, 255, 255);
+  font-size: 2em;
+  font-family: "微軟正黑體";
+}
+
+#mycanvas {
+  position: absolute;
+  top: 18%;
+  display: block;
+  width: 60%;
+  box-shadow: 10px 10px 10px 0.5px rgba(8, 8, 8, 0.452);
+  border-radius: 10px;
+  border: 20px solid #79C743;
+}
+.vtb-intro-mask{
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #fff;
+  mix-blend-mode: screen;
+  width: 100vw;
+  height: 100vh;
+}
+.vtb-intro-mask-overlay{
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/brush/mask.svg");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: right top;
+}
+.vtb-intro-mask_hover{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.vtb-intro-mask_hover-overlay{
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/brush/mask_hover.svg");
+  background-size: auto 100%;
+  background-position: right top;
+  background-repeat: no-repeat;
+}
+//spotlight
+.light {
+  border-bottom:transparent;
+  border-left:solid 20vh transparent;
+  border-right:solid 20vh transparent;
+  border-top:solid 200vh rgba(255, 255, 255, 0.082);
+  bottom:0;
+  height:0;
+  left:55%;
+  position:absolute;
+  transform-origin:bottom;
+  width:0;
+  animation:top-right 5s ease-in-out alternate infinite;
+}
+
+.light + .light {
+  left:auto;
+  right:0;
+  animation:top-left 4s ease-in-out alternate infinite;
+}
+
+@keyframes top-right {
+  0% {
+    transform:rotate(-10deg);
+  }
+  100% {
+    transform:rotate(70deg);
+  }
+}
+
+@keyframes top-left {
+  0% {
+    transform:rotate(10deg);
+  }
+  100% {
+    transform:rotate(-70deg);
+  }
+}
+//字型
+@import url("https://fonts.googleapis.com/css?family=Concert+One");
+
+.vtb-intro-body{
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 200px 0 0 0 ;
+  z-index: 10;
+}
+.vtb-intro-container{
+  padding: 0 0 0 50px;
+}
+.vtb-intro-header h1 span{
+  color: #cad1d7;
+  font-size: 2em;
+}
+.vtb-intro-header h1 b{
+  color: #0a2973;
+}
+.vtb-intro-description{
+  position: absolute;
+  z-index: 10;
+  margin: 30px 0 0 0 ;
+}
+.vtb-intro-description p{
+  font-family: 'HanWangZonYi';
+  font-size: 24px;
+  letter-spacing: 5px;
+  line-height: 35px;
+  font-weight: 300;
+  color:rgba(0,0,0,.5);
+}
+#scene-mask{
+  position: relative;
+}
+.layer div {
+  position: relative;
+  z-index: 999;
+}
+.gift1 {
+  top: 100px;
+  right: -10%;
+}
+.gift1 img{
+  width: 100%;
+}
+.gift2 {
+  top: 350px;
+  right: -80%;;
+}
+.gift2 img{
+  width: 60%;
+}
+.gift3 {
+  top: 500px;
+  right: -180%;
+}
+.gift3 img{
+  width: 60%;
+}
+.gift4 {
+  top: 500px;
+  right: -320%;
+}
+.gift4 img{
+  width: 60%;
+}
+.text {
+  position: absolute;
+  right: -5%;
+  top: 25%;
+  z-index: 0;
+  width: 15%;
+  transform: translate(-55%, -20%);
+  text-align: center;
+  font-size: 5vw;
+  font-family: "Concert One", cursive;
+  animation: text-animation 5s linear infinite alternate;
+}
+
+//霓虹燈動態
+@keyframes text-animation {
+  0% {
+    color: white;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #3FA8F4,
+      0 0 70px #3FA8F4, 0 0 80px #3FA8F4, 0 0 100px #3FA8F4, 0 0 150px #3FA8F4;
+  }
+  60% {
+    color: white;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #79C743, 0 0 30px #79C743,
+      0 0 40px #79C743, 0 0 55px #79C743, 0 0 75px #79C743;
+    text-align: center;
+  }
+  100% {
+    color: white;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #FE0101, 0 0 30px #FE0101,
+      0 0 40px #FE0101, 0 0 55px #FE0101, 0 0 75px #FE0101;
+    text-align: center;
+  }
+}
+
+
+
+$fuschia: #ff0081;
+$button-bg: $fuschia;
+$button-text-color: #fff;
+$baby-blue: #f8faff;
+
+
+
+.maskbrush-button{
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  display: inline-block;
+  font-size: 1em;
+  padding: 1em 2em;
+  margin-top: 100px;
+  margin-bottom: 60px;
+  appearance: none;
+  background-color: $button-bg;
+  color: $button-text-color;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 73%;
+  z-index: 1;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+  
+  &:focus {
+    outline: 0;
+  }
+  
+  &:before, &:after{
+    position: absolute;
+    content: '';
+    display: block;
+    width: 140%;
+    height: 100%;
+    left: -20%;
+    z-index: -1000;
+    transition: all ease-in-out 0.5s;
+    background-repeat: no-repeat;
+  }
+  
+  &:before{
+    display: none;
+    top: -75%;
+    background-image:  
+      radial-gradient(circle, $button-bg 20%, transparent 20%),
+    radial-gradient(circle,  transparent 20%, $button-bg 20%, transparent 30%),
+    radial-gradient(circle, $button-bg 20%, transparent 20%), 
+    radial-gradient(circle, $button-bg 20%, transparent 20%),
+    radial-gradient(circle,  transparent 10%, $button-bg 15%, transparent 20%),
+    radial-gradient(circle, $button-bg 20%, transparent 20%),
+    radial-gradient(circle, $button-bg 20%, transparent 20%),
+    radial-gradient(circle, $button-bg 20%, transparent 20%),
+    radial-gradient(circle, $button-bg 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+  //background-position: 0% 80%, -5% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 85% 30%;
+  }
+  
+  &:after{
+    display: none;
+    bottom: -75%;
+    background-image:  
+    radial-gradient(circle, $button-bg 20%, transparent 20%), 
+    radial-gradient(circle, $button-bg 20%, transparent 20%),
+    radial-gradient(circle,  transparent 10%, $button-bg 15%, transparent 20%),
+    radial-gradient(circle, $button-bg 20%, transparent 20%),
+    radial-gradient(circle, $button-bg 20%, transparent 20%),
+    radial-gradient(circle, $button-bg 20%, transparent 20%),
+    radial-gradient(circle, $button-bg 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+  //background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+  }
+ 
+  &:active{
+    transform: scale(0.9);
+    background-color: darken($button-bg, 5%);
+    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+  }
+  
+  &.animate{
+    &:before{
+      display: block;
+      animation: topBubbles ease-in-out 0.75s forwards;
+    }
+    &:after{
+      display: block;
+      animation: bottomBubbles ease-in-out 0.75s forwards;
+    }
+  }
+}
+
+
+@keyframes topBubbles {
+  0%{
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+  }
+    50% {
+      background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;}
+ 100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+  background-size: 0% 0%, 0% 0%,  0% 0%,  0% 0%,  0% 0%,  0% 0%;
+  }
+}
+
+@keyframes bottomBubbles {
+  0%{
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+  }
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;}
+ 100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+  background-size: 0% 0%, 0% 0%,  0% 0%,  0% 0%,  0% 0%,  0% 0%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
