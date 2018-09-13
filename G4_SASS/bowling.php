@@ -174,7 +174,7 @@
             <div class="home_team">
                 <ul class="teamGroup">
                     <li class="teamItem all">
-                        <a href="#">
+                        <a href="group.php" class="team_aaa">
                             <div class="teamAll">			
                                 <div class="all_img">
                                     <img src="images/index/date.png">
@@ -377,6 +377,19 @@
                 },
                 error:function(){
                     alert('gg');
+                }
+            })
+        });
+        $('.team_aaa').on('click',function(){
+            $.ajax({
+                url:'php/facility/session_sport.php',
+                dataType:'test',
+                type:'POST',
+                data:{
+                    cate_no:parseInt($('.site_select').find('input').eq(0).val()),
+                },
+                success:function(data3){
+                    window.location.href = "group.php";
                 }
             })
         });
