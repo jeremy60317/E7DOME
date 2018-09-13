@@ -116,39 +116,37 @@ session_start();
                         $row['CARD_STATUS'] = '下架中';
                     
                     echo "<tr>".
-                    "<td>".$row['CARD_NO']."</td>".
+                    "<td class='card_no'>".$row['CARD_NO']."</td>".
                     "<td>".$row['CARD_PRICE']."</td>".
                     "<td>".$row['CARD_POINTS']."</td>".
-                    "<td>".$row['CARD_STATUS']."</td>".
+                    '<td><input class="btn_status" type="button" value="'.$row['CARD_STATUS'].'"></td>'.
                     "</tr>";
                 }
                 ?>
                 </tbody>
             </table>              
-        
-                    
-
-        <!-- <form action="back_card_add.php" method="post">           
-            
-            <div id="card_add">
-                <div class="card_add_content">
-                    <div class="cancle"></div>
-                    
-                    <h3>新增點數商品</h3>
-                    <label for="card_name">商品名稱:</label>
-                    <input type="text" name="card_name" id="card_name">
-
-                    <label for="card_price">商品售價:</label>
-                    <input type="text" name="card_price" id="card_price">
-
-                    <label for="card_points">商品點數:</label>
-                    <input type="text" name="card_points" id="card_points">
-                    <input type="submit">
-                </div>
-            </div>
-        </form> -->
     </div>
     <script>
+            $('.btn_status').click(function(){
+                if($(this).val()=='上架中')
+                $(this).val('下架中');
+                else
+                $(this).val('上架中');
+
+                $.ajax({
+                url: 'back_card_status.php',
+                dataType: 'text',
+                tpye: 'GET',
+                data:{
+                    CARD_NO:$(this).parents().parents().children().eq(0).text(),
+                    CARD_STATUS: $(this).val(),
+                },
+                success: function(data) {
+                    alert('修改成功');
+                    // $('table tbody').append(data);    
+                }
+            });
+            });
             $('.btn').click(function () { 
                 $('.bg_site_info_page').toggleClass('active');
             });
