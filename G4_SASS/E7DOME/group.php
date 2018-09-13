@@ -11,7 +11,6 @@ try {
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0,viewport-fit=cover">
     <title>運動揪團</title>
     <link rel="stylesheet" href="css/group.css">
@@ -36,7 +35,7 @@ try {
 
         if(!isset($_SESSION["cate_no"])){
     ?>
-                <option value='*'>全部</option>
+                <option value='*' selected>全部</option>
                 <option value='.1'>籃球</option>
                 <option value='.2'>保齡球</option>
                 <option value='.3'>羽毛球</option>
@@ -55,11 +54,7 @@ try {
                 </select>
             </span>
             <script>
-            var select = $('.selectSport option:selected').val();
-            if(select == '.1'){
-                $('#option').trigger("click");
-            }
-        };
+            var defaultFilter = <?php echo (!isset($_SESSION["cate_no"])) ? "" : "'." . $_SESSION['cate_no'] . "'"; ?>;
             </script>
 <?php
 };
@@ -203,40 +198,31 @@ try {
         </table>
     </div>
 </div>
+<?php session_destroy(); ?>
 
     <script src="libs/jquery/dist/jquery.min.js"></script>
     <script src="libs/isotope-layout/dist/isotope.pkgd.min.js"></script>
     <script src="js/groupinfo.js"></script>
     <script>
-        $(document).ready(function () {
 
             var $grid = $('.grid').isotope({
                 // itemSelector: '.groupblock',
                 itemSelector: '.teamItem',
                 layoutMode: 'fitRows',
             });
-            // filter functions
-            var filterFns = {
-                // show if number is greater than 50
-                // numberGreaterThan50: function() {
-                //   var number = $(this).find('.number').text();
-                //   return parseInt( number, 10 ) > 50;
-                // },
-                // // show if name ends with -ium
-                // ium: function() {
-                //   var name = $(this).find('.name').text();
-                //   return name.match( /ium$/ );
-                // }
-            };
+
             // bind filter on select change
             $('.filters-select').on('change', function () {
                 // get filter value from option value
                 var filterValue = this.value;
                 // use filterFn if matches value
-                filterValue = filterFns[filterValue] || filterValue;
+                // filterValue = filterFns[filterValue] || filterValue;
+                console.log(filterValue);
                 $grid.isotope({ filter: filterValue });
             });
-        });
+            if (defaultFilter && (defaultFilter !== '')){
+                $grid.isotope({ filter: defaultFilter });
+            };
 
     </script>
     <script src="js/groupinfo.js"></script>
