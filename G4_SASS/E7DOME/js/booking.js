@@ -83,3 +83,100 @@ function targetBgc(){
 		});
 	});
 }
+
+function showTdyInfo(counter){
+	var tdy = new Date();
+	tdy.setDate(tdy.getDate()+1);	// OFFSET DATE TO TOMORROW!!!
+	var tzoffset = tdy.getTimezoneOffset() * 60000;
+	var tmrDate = (new Date(tdy - tzoffset)).toISOString().slice(0,10);
+	
+	var cate_no = counter;
+   	$.ajax({
+   		url: "php/booQuery.php",
+   		type: 'post',
+   		data: {
+   			CATE_NO: cate_no,
+   			BOO_DATE: tmrDate    		
+   		},
+   		success:function(data){
+    		var cateNo =  '#queryFac' + cate_no;
+        	$(cateNo).html(data);
+        	modalOpen();
+       		$('.myBtn').click(function(e){
+		    	var fac_no 		= $(this).nextAll().eq(0).val();
+		    	var boo_time_i 	= $(this).nextAll().eq(1).val();
+		    	showInfo(fac_no,tmrDate,boo_time_i);
+	        });	        	
+     	}
+   	});
+}
+
+function showTargetInfo(targetDate){
+	$('.date').click(function(){
+		var mm 	 = ('0' + $(this).text().split('/')[0]).slice(-2);
+		var dd 	 = ('0' + $(this).text().split('/')[1]).slice(-2);
+		var yyyy = $(this).children().data('yyyy');
+
+		var targetDate = yyyy +'-' + mm + '-' + dd;
+		var cate_no = $(this).closest('.table-date').data('cate');
+
+	    $.post("php/booQuery.php",
+	    	{
+	    		CATE_NO: cate_no,
+	    		BOO_DATE: targetDate
+	    	},
+	    function(data){
+	    	var cateNo =  '#queryFac' + cate_no;
+	        $(cateNo).html(data);
+	        modalOpen();
+
+	        $('.myBtn').click(function(){
+		    	var fac_no 		= $(this).nextAll().eq(0).val();
+		    	var boo_time_i 	= $(this).nextAll().eq(1).val();
+		    	showInfo(fac_no,targetDate,boo_time_i);
+	        });
+
+	    });
+
+	});
+}
+
+function modalOpen(){
+	// Get the modal
+	var modal = document.getElementById('myModal');
+	
+	$(".myBtn").each(function(){
+		$(this).click(function(){ 
+			modal.style.display = "block";
+		});
+	});
+	
+	$(".close").each(function(){
+		$(this).click(function(){
+			modal.style.display = "none";
+		});
+	});
+	
+	$(".cancel").each(function(){
+		$(this).click(function(){
+			modal.style.display = "none";
+		});
+	});
+	
+	window.onclick = function(event) {
+    	if (event.target == modal) {
+        	modal.style.display = "none";
+    	}
+	}
+}
+
+window.addEventListener('load',function(){
+	bookingCal();
+	$('.area').one('click',function(){
+		showTdyInfo($(this).data('cate'));
+	});
+	showTdyInfo(cate_no);
+	accActiveNow();
+	showTargetInfo();
+	targetBgc();
+});
