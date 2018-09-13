@@ -1,5 +1,5 @@
-E7DOME/node_modules/*
-E7DOME/package-lock.json/*
-E7DOME/css/*
-E7DOME/images/qrcode/*
-E7DOME/php/connect_g4.php
+/node_modules/*
+/package-lock.json/*
+/css/*
+/images/qrcode/*
+/php/connect_g4.php
