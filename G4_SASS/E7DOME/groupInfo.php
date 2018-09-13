@@ -20,7 +20,6 @@ try {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0,viewport-fit=cover">
     <link rel="stylesheet" type="text/css" href="css/groupInfo.css">
     <link rel="stylesheet" type="text/css" href="css/editGroup.css">
@@ -129,13 +128,14 @@ try {
                                     $MEM_NO = $_SESSION['MEM_NO'];
                                     $sql = "SELECT * FROM team_keep WHERE team_keep.TEAM_NO = $TEAM_NO AND team_keep.MEM_NO =  $MEM_NO";
                                     $team_keep = $pdo->prepare($sql);
-                                    $team_keep->execute(); 
+                                    $team_keep->execute();
                                     $rows = $team_keep->rowCount();
                                     echo '<form action="php/team_keep.php" method="POST">
                                     <input type="hidden" name="team_no" value="'. $TEAM_NO.'">
                                     <input type="hidden" name="mem_no" value="'. $MEM_NO.'">';
                                     if($rows==0)
                                     echo '<input type="image" src="images/unlike.png" class="icon icon-a" id="heart" title="加入收藏" border="0" name="team_keep" value="1"/>';
+
                                         // echo '<img src="images/unlike.png" >
                                         // <input type="hidden" name="team_keep" value="1">';
                                     else
@@ -145,11 +145,11 @@ try {
                                     echo'</form>';
                                  }
                                 else
-                                echo '<input type="image" src="images/unlike.png" class="icon  icon-a" id="heart" title="加入收藏" border="0" alt="Submit" value="1"/>';
+                                echo '<input type="image" src="images/unlike.png" class="icon  icon-a" id="heart" title="加入收藏" border="0" alt="Submit" value="3"/>';
                             ?>
 
                             <a id="icon" class="icon" target="_blank" href="https://social-plugins.line.me/lineit/share?url=http://140.115.236.72/demo-projects/CD102/CD102G4/groupInfo.php?TEAM_NO=<?php echo $teamsRow["TEAM_NO"];?>">
-                            <img src="images/share.png" class="icon";>
+                            <img src="images/share.png" class="icon" title="分享給LINE好友";>
     
                   </a>
                             </div>
@@ -227,7 +227,6 @@ try {
 
 <script src="libs/jquery/dist/jquery.min.js"></script>
     <script src="js/groupinfo.js"></script>
-    
     <script>
 
     $(document).ready(function(){
@@ -235,7 +234,13 @@ try {
         var myDiv = document.getElementById('forum-border');
         myDiv.scrollTop = myDiv.scrollHeight;
 
-});
+        $("#heart").click(function add(){
+            if($("#heart").val() == "1"){
+            alert("已加入收藏!");
+            }
+        })
+
+    });
 
     </script>
 

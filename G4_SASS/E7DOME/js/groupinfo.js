@@ -87,10 +87,31 @@
                 $('.group-body').css("background","url('images/fac-climb.jpg') no-repeat center fixed");
                 $('.group-body').css("background-size","cover");
             }else{
-                $('.group-body').css("background","url('images/climb.jpg') no-repeat center fixed");
+                $('.group-body').css("background","url('images/rockclimb.jpg') no-repeat center fixed");
                 $('.group-body').css("background-size","cover");
             }
         });
+        
+        var Value = $('.selectSport :selected').val();
+            if(Value == .1){
+                $('.group-body').css("background","url('images/fac-bask.jpg') no-repeat center fixed");
+                $('.group-body').css("background-size","cover");
+                $('.group-body').css("transition",".7s");
+                $('.group-body').css("transition-timing-function","ease-in");
+                //return false;
+            }else if(Value == .2){
+                $('.group-body').css("background","url('images/fac-bowling.jpg') no-repeat center fixed");
+                $('.group-body').css("background-size","cover");
+            }else if(Value == .3){
+                $('.group-body').css("background","url('images/fac-bad.jpg') no-repeat center fixed");
+                $('.group-body').css("background-size","cover");
+            }else if(Value == .4){
+                $('.group-body').css("background","url('images/fac-climb.jpg') no-repeat center fixed");
+                $('.group-body').css("background-size","cover");
+            }else{
+                $('.group-body').css("background","url('images/rockclimb.jpg') no-repeat center fixed");
+                $('.group-body').css("background-size","cover");
+            }
 
 });
 
