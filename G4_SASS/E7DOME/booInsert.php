@@ -141,7 +141,7 @@ $booTicket = $pdo->query($sqlBoo);
     $host= gethostname();
     $ip = gethostbyname($host);
     // $ip = $_SERVER['SERVER_ADDR'];
-    $codeContents = "http://".$ip."/demo-projects/CD102/CD102G4/php/booScan.php?BOO_NO=$lastBooNo";
+    $codeContents = "http://".$ip."/demo-projects/CD102/CD102G4/E7DOME/php/booScan.php?BOO_NO=$lastBooNo";
      
     // we need to generate filename somehow,  
     // with md5 or with database ID used to obtains $codeContents... 
