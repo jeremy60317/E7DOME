@@ -16,9 +16,12 @@ function sendForm() {
 
   xhr.onload = function () {
     if (xhr.status == 200) {
+      
       if (xhr.responseText == "NG") {
         alert("帳密錯誤");
-      } else {
+      } else if(xhr.responseText == "停權"){
+        alert("此會員已遭停權");
+      }else{
         document.getElementById("pic_a").style.display = "block";
         document.getElementById("pic_a").href = 'memberinfo.php';
         document.getElementById("m_pic").src = 'images/member_pic/' + xhr.responseText;
