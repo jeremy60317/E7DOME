@@ -14,17 +14,22 @@ try{
   }else{ //登入成功
     //自資料庫中取回資料
   	$memRow = $member->fetch(PDO::FETCH_ASSOC);
-  	$_SESSION["MEM_NO"] = $memRow["MEM_NO"];
-  	$_SESSION["MEM_ID"] = $memRow["MEM_ID"];
-    $_SESSION["MEM_PSW"] = $memRow["MEM_PSW"];
-  	$_SESSION["MEM_NAME"] = $memRow["MEM_NAME"];
-    $_SESSION["MEM_PHONE"] = $memRow["MEM_PHONE"];
-    $_SESSION["MEM_POINTS"] = $memRow["MEM_POINTS"];
-    $_SESSION["MEM_IMG"] = $memRow["MEM_IMG"];
- 
+  	
+    if($memRow['MEM_STATUS'] == 1){
+      $_SESSION["MEM_NO"] = $memRow["MEM_NO"];
+  	  $_SESSION["MEM_ID"] = $memRow["MEM_ID"];
+      $_SESSION["MEM_PSW"] = $memRow["MEM_PSW"];
+  	  $_SESSION["MEM_NAME"] = $memRow["MEM_NAME"];
+      $_SESSION["MEM_PHONE"] = $memRow["MEM_PHONE"];
+      $_SESSION["MEM_POINTS"] = $memRow["MEM_POINTS"];
+      $_SESSION["MEM_IMG"] = $memRow["MEM_IMG"];
+      echo $_SESSION["MEM_IMG"];
+    }else{
+      echo "停權";
+    }
   
     //送出登入者的姓名資料
-    echo $_SESSION["MEM_IMG"];
+   
   }
 }catch(PDOException $e){
   echo $e->getMessage();
